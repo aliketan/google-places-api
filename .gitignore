@@ -1,0 +1,11 @@
+/node_modules
+/dist
+/.nyc_output
+/.jest-cache
+.DS_Store
+*.log
+.vscode
+.cache
+.eslintcache
+.cspellcache
+package-lock.json

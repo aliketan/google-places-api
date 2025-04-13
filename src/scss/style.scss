@@ -1,0 +1,28 @@
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin:0px;
+    width: 100%;
+    @include font-size(15);
+    font-family: 'Gilroy', sans-serif;
+    font-weight: normal;
+    color:$color--black;
+    position: relative;
+}
+
+*::placeholder {
+    color: $color--gray !important;
+}
+
+.form-control, .form-select {
+    @include font-size(15);
+    padding:12px 15px;
+}
+
+@media (max-width:1366px) {}
+@include media-breakpoint-down(lg)  {}
+@include media-breakpoint-down(md)  { }
+@include media-breakpoint-down(sm)  { }
+@include media-breakpoint-down(def) { }

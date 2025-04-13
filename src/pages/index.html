@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta id="viewport" name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Google Places API</title>
+  </head>
+  <body data-template="index">
+    <main>
+
+      <div class="container">
+        <div class="m-auto text-center my-5">
+          <img src="/assets/images/logo.png" alt="Google Places API" />
+        </div>
+        <form action="#" method="post" id="address-form">
+          <div class="row">
+            <div class="col-sm-6 col-12">
+              <div class="form-group mb-3">
+                <label class="d-block mb-1">First name</label>
+                <input type="text" class="form-control" name="firstname" placeholder="Enter your first name" />
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-12">
+              <div class="form-group mb-3">
+                <label class="d-block mb-1">Last name</label>
+                <input type="text" class="form-control" name="lastname" placeholder="Enter your last name" />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group mb-3">
+                <label class="d-block mb-1">Address</label>
+                <input type="text" class="form-control" name="address" id="address" placeholder="Enter your address" />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group mb-3">
+                <label class="d-block mb-1">Apartment, Flat etc.</label>
+                <input type="text" class="form-control" name="apartment" placeholder="Apartment, Flat etc. (Optional)"/>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group mb-3">
+                <label class="d-block mb-1">Country</label>
+                <select name="country" class="form-select" placeholder="Country / Territory">
+                      <option value="">Select...</option>
+                      <option value="1" data-phone-code="93" data-country-code="AF">Afghanistan</option>
+                      <option value="2" data-phone-code="355" data-country-code="AL">Albania</option>
+                      <option value="3" data-phone-code="213" data-country-code="DZ">Algeria</option>
+                      <option value="4" data-phone-code="1684" data-country-code="AS">American Samoa</option>
+                      <option value="5" data-phone-code="376" data-country-code="AD">Andorra</option>
+                      <option value="6" data-phone-code="244" data-country-code="AO">Angola</option>
+                      <option value="7" data-phone-code="1264" data-country-code="AI">Anguilla</option>
+                      <option value="8" data-phone-code="0" data-country-code="AQ">Antarctica</option>
+                      <option value="9" data-phone-code="1268" data-country-code="AG">Antigua And Barbuda</option>
+                      <option value="10" data-phone-code="54" data-country-code="AR">Argentina</option>
+                      <option value="11" data-phone-code="374" data-country-code="AM">Armenia</option>
+                      <option value="12" data-phone-code="297" data-country-code="AW">Aruba</option>
+                      <option value="13" data-phone-code="61" data-country-code="AU">Australia</option>
+                      <option value="14" data-phone-code="43" data-country-code="AT">Austria</option>
+                      <option value="15" data-phone-code="994" data-country-code="AZ">Azerbaijan</option>
+                      <option value="16" data-phone-code="1242" data-country-code="BS">Bahamas</option>
+                      <option value="17" data-phone-code="973" data-country-code="BH">Bahrain</option>
+                      <option value="18" data-phone-code="880" data-country-code="BD">Bangladesh</option>
+                      <option value="19" data-phone-code="1246" data-country-code="BB">Barbados</option>
+                      <option value="20" data-phone-code="375" data-country-code="BY">Belarus</option>
+                      <option value="21" data-phone-code="32" data-country-code="BE">Belgium</option>
+                      <option value="22" data-phone-code="501" data-country-code="BZ">Belize</option>
+                      <option value="23" data-phone-code="229" data-country-code="BJ">Benin</option>
+                      <option value="24" data-phone-code="1441" data-country-code="BM">Bermuda</option>
+                      <option value="25" data-phone-code="975" data-country-code="BT">Bhutan</option>
+                      <option value="26" data-phone-code="591" data-country-code="BO">Bolivia</option>
+                      <option value="27" data-phone-code="387" data-country-code="BA">Bosnia and Herzegovina</option>
+                      <option value="28" data-phone-code="267" data-country-code="BW">Botswana</option>
+                      <option value="29" data-phone-code="0" data-country-code="BV">Bouvet Island</option>
+                      <option value="30" data-phone-code="55" data-country-code="BR">Brazil</option>
+                      <option value="31" data-phone-code="246" data-country-code="IO">British Indian Ocean Territory</option>
+                      <option value="32" data-phone-code="673" data-country-code="BN">Brunei</option>
+                      <option value="33" data-phone-code="359" data-country-code="BG">Bulgaria</option>
+                      <option value="34" data-phone-code="226" data-country-code="BF">Burkina Faso</option>
+                      <option value="35" data-phone-code="257" data-country-code="BI">Burundi</option>
+                      <option value="36" data-phone-code="855" data-country-code="KH">Cambodia</option>
+                      <option value="37" data-phone-code="237" data-country-code="CM">Cameroon</option>
+                      <option value="38" data-phone-code="1" data-country-code="CA">Canada</option>
+                      <option value="39" data-phone-code="238" data-country-code="CV">Cape Verde</option>
+                      <option value="40" data-phone-code="1345" data-country-code="KY">Cayman Islands</option>
+                      <option value="41" data-phone-code="236" data-country-code="CF">Central African Republic</option>
+                      <option value="42" data-phone-code="235" data-country-code="TD">Chad</option>
+                      <option value="43" data-phone-code="56" data-country-code="CL">Chile</option>
+                      <option value="44" data-phone-code="86" data-country-code="CN">China</option>
+                      <option value="45" data-phone-code="61" data-country-code="CX">Christmas Island</option>
+                      <option value="46" data-phone-code="672" data-country-code="CC">Cocos (Keeling) Islands</option>
+                      <option value="47" data-phone-code="57" data-country-code="CO">Colombia</option>
+                      <option value="48" data-phone-code="269" data-country-code="KM">Comoros</option>
+                      <option value="51" data-phone-code="682" data-country-code="CK">Cook Islands</option>
+                      <option value="52" data-phone-code="506" data-country-code="CR">Costa Rica</option>
+                      <option value="53" data-phone-code="225" data-country-code="CI">Cote D'Ivoire (Ivory Coast)</option>
+                      <option value="54" data-phone-code="385" data-country-code="HR">Croatia (Hrvatska)</option>
+                      <option value="55" data-phone-code="53" data-country-code="CU">Cuba</option>
+                      <option value="56" data-phone-code="357" data-country-code="CY">Cyprus</option>
+                      <option value="57" data-phone-code="420" data-country-code="CZ">Czech Republic</option>
+                      <option value="50" data-phone-code="242" data-country-code="CD">Democratic Republic Of The Congo</option>
+                      <option value="58" data-phone-code="45" data-country-code="DK">Denmark</option>
+                      <option value="59" data-phone-code="253" data-country-code="DJ">Djibouti</option>
+                      <option value="60" data-phone-code="1767" data-country-code="DM">Dominica</option>
+                      <option value="61" data-phone-code="1809" data-country-code="DO">Dominican Republic</option>
+                      <option value="62" data-phone-code="670" data-country-code="TP">East Timor</option>
+                      <option value="63" data-phone-code="593" data-country-code="EC">Ecuador</option>
+                      <option value="64" data-phone-code="20" data-country-code="EG">Egypt</option>
+                      <option value="65" data-phone-code="503" data-country-code="SV">El Salvador</option>
+                      <option value="66" data-phone-code="240" data-country-code="GQ">Equatorial Guinea</option>
+                      <option value="67" data-phone-code="291" data-country-code="ER">Eritrea</option>
+                      <option value="68" data-phone-code="372" data-country-code="EE">Estonia</option>
+                      <option value="69" data-phone-code="251" data-country-code="ET">Ethiopia</option>
+                      <option value="70" data-phone-code="61" data-country-code="XA">External Territories of Australia</option>
+                      <option value="71" data-phone-code="500" data-country-code="FK">Falkland Islands</option>
+                      <option value="72" data-phone-code="298" data-country-code="FO">Faroe Islands</option>
+                      <option value="73" data-phone-code="679" data-country-code="FJ">Fiji Islands</option>
+                      <option value="74" data-phone-code="358" data-country-code="FI">Finland</option>
+                      <option value="75" data-phone-code="33" data-country-code="FR">France</option>
+                      <option value="76" data-phone-code="594" data-country-code="GF">French Guiana</option>
+                      <option value="77" data-phone-code="689" data-country-code="PF">French Polynesia</option>
+                      <option value="78" data-phone-code="0" data-country-code="TF">French Southern Territories</option>
+                      <option value="79" data-phone-code="241" data-country-code="GA">Gabon</option>
+                      <option value="80" data-phone-code="220" data-country-code="GM">Gambia The</option>
+                      <option value="81" data-phone-code="995" data-country-code="GE">Georgia</option>
+                      <option value="82" data-phone-code="49" data-country-code="DE">Germany</option>
+                      <option value="83" data-phone-code="233" data-country-code="GH">Ghana</option>
+                      <option value="84" data-phone-code="350" data-country-code="GI">Gibraltar</option>
+                      <option value="85" data-phone-code="30" data-country-code="GR">Greece</option>
+                      <option value="86" data-phone-code="299" data-country-code="GL">Greenland</option>
+                      <option value="87" data-phone-code="1473" data-country-code="GD">Grenada</option>
+                      <option value="88" data-phone-code="590" data-country-code="GP">Guadeloupe</option>
+                      <option value="89" data-phone-code="1671" data-country-code="GU">Guam</option>
+                      <option value="90" data-phone-code="502" data-country-code="GT">Guatemala</option>
+                      <option value="91" data-phone-code="44" data-country-code="XU">Guernsey and Alderney</option>
+                      <option value="92" data-phone-code="224" data-country-code="GN">Guinea</option>
+                      <option value="93" data-phone-code="245" data-country-code="GW">Guinea-Bissau</option>
+                      <option value="94" data-phone-code="592" data-country-code="GY">Guyana</option>
+                      <option value="95" data-phone-code="509" data-country-code="HT">Haiti</option>
+                      <option value="96" data-phone-code="0" data-country-code="HM">Heard and McDonald Islands</option>
+                      <option value="97" data-phone-code="504" data-country-code="HN">Honduras</option>
+                      <option value="98" data-phone-code="852" data-country-code="HK">Hong Kong S.A.R.</option>
+                      <option value="99" data-phone-code="36" data-country-code="HU">Hungary</option>
+                      <option value="100" data-phone-code="354" data-country-code="IS">Iceland</option>
+                      <option value="101" data-phone-code="91" data-country-code="IN">India</option>
+                      <option value="102" data-phone-code="62" data-country-code="ID">Indonesia</option>
+                      <option value="103" data-phone-code="98" data-country-code="IR">Iran</option>
+                      <option value="104" data-phone-code="964" data-country-code="IQ">Iraq</option>
+                      <option value="105" data-phone-code="353" data-country-code="IE">Ireland</option>
+                      <option value="106" data-phone-code="972" data-country-code="IL">Israel</option>
+                      <option value="107" data-phone-code="39" data-country-code="IT">Italy</option>
+                      <option value="108" data-phone-code="1876" data-country-code="JM">Jamaica</option>
+                      <option value="109" data-phone-code="81" data-country-code="JP">Japan</option>
+                      <option value="110" data-phone-code="44" data-country-code="XJ">Jersey</option>
+                      <option value="111" data-phone-code="962" data-country-code="JO">Jordan</option>
+                      <option value="112" data-phone-code="7" data-country-code="KZ">Kazakhstan</option>
+                      <option value="113" data-phone-code="254" data-country-code="KE">Kenya</option>
+                      <option value="114" data-phone-code="686" data-country-code="KI">Kiribati</option>
+                      <option value="117" data-phone-code="965" data-country-code="KW">Kuwait</option>
+                      <option value="118" data-phone-code="996" data-country-code="KG">Kyrgyzstan</option>
+                      <option value="119" data-phone-code="856" data-country-code="LA">Laos</option>
+                      <option value="120" data-phone-code="371" data-country-code="LV">Latvia</option>
+                      <option value="121" data-phone-code="961" data-country-code="LB">Lebanon</option>
+                      <option value="122" data-phone-code="266" data-country-code="LS">Lesotho</option>
+                      <option value="123" data-phone-code="231" data-country-code="LR">Liberia</option>
+                      <option value="124" data-phone-code="218" data-country-code="LY">Libya</option>
+                      <option value="125" data-phone-code="423" data-country-code="LI">Liechtenstein</option>
+                      <option value="126" data-phone-code="370" data-country-code="LT">Lithuania</option>
+                      <option value="127" data-phone-code="352" data-country-code="LU">Luxembourg</option>
+                      <option value="128" data-phone-code="853" data-country-code="MO">Macau S.A.R.</option>
+                      <option value="129" data-phone-code="389" data-country-code="MK">Macedonia</option>
+                      <option value="130" data-phone-code="261" data-country-code="MG">Madagascar</option>
+                      <option value="131" data-phone-code="265" data-country-code="MW">Malawi</option>
+                      <option value="132" data-phone-code="60" data-country-code="MY">Malaysia</option>
+                      <option value="133" data-phone-code="960" data-country-code="MV">Maldives</option>
+                      <option value="134" data-phone-code="223" data-country-code="ML">Mali</option>
+                      <option value="135" data-phone-code="356" data-country-code="MT">Malta</option>
+                      <option value="136" data-phone-code="44" data-country-code="XM">Man (Isle of)</option>
+                      <option value="137" data-phone-code="692" data-country-code="MH">Marshall Islands</option>
+                      <option value="138" data-phone-code="596" data-country-code="MQ">Martinique</option>
+                      <option value="139" data-phone-code="222" data-country-code="MR">Mauritania</option>
+                      <option value="140" data-phone-code="230" data-country-code="MU">Mauritius</option>
+                      <option value="141" data-phone-code="269" data-country-code="YT">Mayotte</option>
+                      <option value="142" data-phone-code="52" data-country-code="MX">Mexico</option>
+                      <option value="143" data-phone-code="691" data-country-code="FM">Micronesia</option>
+                      <option value="144" data-phone-code="373" data-country-code="MD">Moldova</option>
+                      <option value="145" data-phone-code="377" data-country-code="MC">Monaco</option>
+                      <option value="146" data-phone-code="976" data-country-code="MN">Mongolia</option>
+                      <option value="247" data-phone-code="382" data-country-code="ME">Montenegro</option>
+                      <option value="147" data-phone-code="1664" data-country-code="MS">Montserrat</option>
+                      <option value="148" data-phone-code="212" data-country-code="MA">Morocco</option>
+                      <option value="149" data-phone-code="258" data-country-code="MZ">Mozambique</option>
+                      <option value="150" data-phone-code="95" data-country-code="MM">Myanmar</option>
+                      <option value="151" data-phone-code="264" data-country-code="NA">Namibia</option>
+                      <option value="152" data-phone-code="674" data-country-code="NR">Nauru</option>
+                      <option value="153" data-phone-code="977" data-country-code="NP">Nepal</option>
+                      <option value="154" data-phone-code="599" data-country-code="AN">Netherlands Antilles</option>
+                      <option value="155" data-phone-code="31" data-country-code="NL">Netherlands The</option>
+                      <option value="156" data-phone-code="687" data-country-code="NC">New Caledonia</option>
+                      <option value="157" data-phone-code="64" data-country-code="NZ">New Zealand</option>
+                      <option value="158" data-phone-code="505" data-country-code="NI">Nicaragua</option>
+                      <option value="159" data-phone-code="227" data-country-code="NE">Niger</option>
+                      <option value="160" data-phone-code="234" data-country-code="NG">Nigeria</option>
+                      <option value="161" data-phone-code="683" data-country-code="NU">Niue</option>
+                      <option value="162" data-phone-code="672" data-country-code="NF">Norfolk Island</option>
+                      <option value="115" data-phone-code="850" data-country-code="KP">North Korea</option>
+                      <option value="163" data-phone-code="1670" data-country-code="MP">Northern Mariana Islands</option>
+                      <option value="164" data-phone-code="47" data-country-code="NO">Norway</option>
+                      <option value="165" data-phone-code="968" data-country-code="OM">Oman</option>
+                      <option value="166" data-phone-code="92" data-country-code="PK">Pakistan</option>
+                      <option value="167" data-phone-code="680" data-country-code="PW">Palau</option>
+                      <option value="168" data-phone-code="970" data-country-code="PS">Palestinian Territory Occupied</option>
+                      <option value="169" data-phone-code="507" data-country-code="PA">Panama</option>
+                      <option value="170" data-phone-code="675" data-country-code="PG">Papua new Guinea</option>
+                      <option value="171" data-phone-code="595" data-country-code="PY">Paraguay</option>
+                      <option value="172" data-phone-code="51" data-country-code="PE">Peru</option>
+                      <option value="173" data-phone-code="63" data-country-code="PH">Philippines</option>
+                      <option value="174" data-phone-code="0" data-country-code="PN">Pitcairn Island</option>
+                      <option value="175" data-phone-code="48" data-country-code="PL">Poland</option>
+                      <option value="176" data-phone-code="351" data-country-code="PT">Portugal</option>
+                      <option value="177" data-phone-code="1787" data-country-code="PR">Puerto Rico</option>
+                      <option value="178" data-phone-code="974" data-country-code="QA">Qatar</option>
+                      <option value="49" data-phone-code="242" data-country-code="CG">Republic Of The Congo</option>
+                      <option value="179" data-phone-code="262" data-country-code="RE">Reunion</option>
+                      <option value="180" data-phone-code="40" data-country-code="RO">Romania</option>
+                      <option value="182" data-phone-code="250" data-country-code="RW">Rwanda</option>
+                      <option value="183" data-phone-code="290" data-country-code="SH">Saint Helena</option>
+                      <option value="184" data-phone-code="1869" data-country-code="KN">Saint Kitts And Nevis</option>
+                      <option value="185" data-phone-code="1758" data-country-code="LC">Saint Lucia</option>
+                      <option value="186" data-phone-code="508" data-country-code="PM">Saint Pierre and Miquelon</option>
+                      <option value="187" data-phone-code="1784" data-country-code="VC">Saint Vincent And The Grenadines</option>
+                      <option value="188" data-phone-code="684" data-country-code="WS">Samoa</option>
+                      <option value="189" data-phone-code="378" data-country-code="SM">San Marino</option>
+                      <option value="190" data-phone-code="239" data-country-code="ST">Sao Tome and Principe</option>
+                      <option value="191" data-phone-code="966" data-country-code="SA">Saudi Arabia</option>
+                      <option value="192" data-phone-code="221" data-country-code="SN">Senegal</option>
+                      <option value="193" data-phone-code="381" data-country-code="RS">Serbia</option>
+                      <option value="194" data-phone-code="248" data-country-code="SC">Seychelles</option>
+                      <option value="195" data-phone-code="232" data-country-code="SL">Sierra Leone</option>
+                      <option value="196" data-phone-code="65" data-country-code="SG">Singapore</option>
+                      <option value="197" data-phone-code="421" data-country-code="SK">Slovakia</option>
+                      <option value="198" data-phone-code="386" data-country-code="SI">Slovenia</option>
+                      <option value="199" data-phone-code="44" data-country-code="XG">Smaller Territories of the UK</option>
+                      <option value="200" data-phone-code="677" data-country-code="SB">Solomon Islands</option>
+                      <option value="201" data-phone-code="252" data-country-code="SO">Somalia</option>
+                      <option value="202" data-phone-code="27" data-country-code="ZA">South Africa</option>
+                      <option value="203" data-phone-code="0" data-country-code="GS">South Georgia</option>
+                      <option value="116" data-phone-code="82" data-country-code="KR">South Korea</option>
+                      <option value="204" data-phone-code="211" data-country-code="SS">South Sudan</option>
+                      <option value="205" data-phone-code="34" data-country-code="ES">Spain</option>
+                      <option value="206" data-phone-code="94" data-country-code="LK">Sri Lanka</option>
+                      <option value="207" data-phone-code="249" data-country-code="SD">Sudan</option>
+                      <option value="208" data-phone-code="597" data-country-code="SR">Suriname</option>
+                      <option value="209" data-phone-code="47" data-country-code="SJ">Svalbard And Jan Mayen Islands</option>
+                      <option value="210" data-phone-code="268" data-country-code="SZ">Swaziland</option>
+                      <option value="211" data-phone-code="46" data-country-code="SE">Sweden</option>
+                      <option value="212" data-phone-code="41" data-country-code="CH">Switzerland</option>
+                      <option value="213" data-phone-code="963" data-country-code="SY">Syria</option>
+                      <option value="214" data-phone-code="886" data-country-code="TW">Taiwan</option>
+                      <option value="215" data-phone-code="992" data-country-code="TJ">Tajikistan</option>
+                      <option value="216" data-phone-code="255" data-country-code="TZ">Tanzania</option>
+                      <option value="217" data-phone-code="66" data-country-code="TH">Thailand</option>
+                      <option value="218" data-phone-code="228" data-country-code="TG">Togo</option>
+                      <option value="219" data-phone-code="690" data-country-code="TK">Tokelau</option>
+                      <option value="220" data-phone-code="676" data-country-code="TO">Tonga</option>
+                      <option value="221" data-phone-code="1868" data-country-code="TT">Trinidad And Tobago</option>
+                      <option value="222" data-phone-code="216" data-country-code="TN">Tunisia</option>
+                      <option value="223" data-phone-code="90" data-country-code="TR">Turkey</option>
+                      <option value="224" data-phone-code="7370" data-country-code="TM">Turkmenistan</option>
+                      <option value="225" data-phone-code="1649" data-country-code="TC">Turks And Caicos Islands</option>
+                      <option value="226" data-phone-code="688" data-country-code="TV">Tuvalu</option>
+                      <option value="227" data-phone-code="256" data-country-code="UG">Uganda</option>
+                      <option value="228" data-phone-code="380" data-country-code="UA">Ukraine</option>
+                      <option value="229" data-phone-code="971" data-country-code="AE">United Arab Emirates</option>
+                      <option value="230" data-phone-code="44" data-country-code="GB">United Kingdom</option>
+                      <option value="231" data-phone-code="1" data-country-code="US">United States</option>
+                      <option value="232" data-phone-code="1" data-country-code="UM">United States Minor Outlying Islands</option>
+                      <option value="233" data-phone-code="598" data-country-code="UY">Uruguay</option>
+                      <option value="234" data-phone-code="998" data-country-code="UZ">Uzbekistan</option>
+                      <option value="235" data-phone-code="678" data-country-code="VU">Vanuatu</option>
+                      <option value="236" data-phone-code="39" data-country-code="VA">Vatican City State (Holy See)</option>
+                      <option value="237" data-phone-code="58" data-country-code="VE">Venezuela</option>
+                      <option value="238" data-phone-code="84" data-country-code="VN">Vietnam</option>
+                      <option value="239" data-phone-code="1284" data-country-code="VG">Virgin Islands (British)</option>
+                      <option value="240" data-phone-code="1340" data-country-code="VI">Virgin Islands (US)</option>
+                      <option value="241" data-phone-code="681" data-country-code="WF">Wallis And Futuna Islands</option>
+                      <option value="242" data-phone-code="212" data-country-code="EH">Western Sahara</option>
+                      <option value="243" data-phone-code="967" data-country-code="YE">Yemen</option>
+                      <option value="244" data-phone-code="38" data-country-code="YU">Yugoslavia</option>
+                      <option value="245" data-phone-code="260" data-country-code="ZM">Zambia</option>
+                      <option value="246" data-phone-code="263" data-country-code="ZW">Zimbabwe</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6 col-12">
+              <div class="form-group mb-3">
+                <label class="d-block mb-1">City</label>
+                <input type="text" class="form-control" name="city" placeholder="Enter city" />
+              </div>
+            </div>
+            <div class="col-sm-6 col-12">
+              <div class="form-group mb-3">
+                <label class="d-block mb-1">Postal code</label>
+                <input type="text" class="form-control" name="postalcode" placeholder="Enter postal code" />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group mb-3">
+                <label class="d-block mb-1">Province</label>
+                <input type="text" class="form-control" name="province" placeholder="Enter province" />
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="button" class="btn btn-success w-100">Submit</button>
+            </div>
+            
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

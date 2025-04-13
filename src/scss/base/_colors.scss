@@ -1,0 +1,25 @@
+$color--white               : #FFFFFF;
+$color--black               : #000000;
+$color--green               : green;
+$color--red                 : red;
+$color--gray                : #a0a0a0;
+
+.color--white               { color: $color--white!important; }
+.bg--white                  { background-color: $color--white!important; }
+.br--white                  { border-color: $color--white!important; }
+
+.color--black               { color: $color--black!important; }
+.bg--black                  { background-color: $color--black!important; }
+.br--black                  { border-color: $color--black!important; }
+
+.color--red                 { color: $color--red!important; }
+.bg--red                    { background-color: $color--red!important; }
+.br--red                    { border-color: $color--red!important; }
+
+.color--green               { color: $color--green!important; }
+.bg--green                  { background-color: $color--green!important; }
+.br--green                  { border-color: $color--green!important; }
+
+.color--gray               { color: $color--gray!important; }
+.bg--gray                  { background-color: $color--gray!important; }
+.br--gray                  { border-color: $color--gray!important; }
