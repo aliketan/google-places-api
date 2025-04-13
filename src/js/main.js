@@ -4,12 +4,11 @@
     main.version = '1.0.0';
 
     //google places api key.
-    const apiKey = "";
+    const apiKey = "YOUR_API_KEY";
 
     main.app = {  
         pages: {
             index: function () {
-                
                 var addressInput = $("input[name='address']");
                 addressInput.geoCodePlaces({ 
                     apiKey: apiKey,
